@@ -1,0 +1,13 @@
+Date,Transaction,Debit,,Credit,Balance
+15 Oct,2013 OPENING BALANCE,,,,Nil
+15 Oct,Transfer from Willy Wonka NetBank,,,,
+,Choc Sprinkels,,,$3,000.00,$3,000.00 CR
+16 Oct,Wdl Branch Box Hill,200.00,(,,$2,800.00 CR
+21 Oct,Wdl Branch Fl & Eliz Melb,300.00,(,,$2,500.00 CR
+24 Oct,SAFEWAY W3202 BOX HILL AUS,,,,
+,Card xx0490,,,,
+,Value Date: 23/10/2013,2.09,(,,$2,497.91 CR
+25 Oct,TGI FRIDAYS 0001 SOUTH YARRA,141.45,(,,$2,356.46 CR
+26 Oct,TELSTRA MELBOURNE VI AUS,,,,
+,Card xx0490,,,,
+,Value Date: 24/10/2013,20.00,(,,$2,336.46 CR

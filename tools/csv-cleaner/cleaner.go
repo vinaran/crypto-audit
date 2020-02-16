@@ -18,7 +18,7 @@ func clean(r io.Reader, w io.Writer) error {
 			return err
 		}
 
-		s := strings.Join(rec, ";")
+		s := strings.Join(rec, ",") + "\n"
 		w.Write([]byte(s))
 	}
 

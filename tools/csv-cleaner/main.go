@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"log"
 	"os"
 )
@@ -13,16 +14,21 @@ func main() {
 		os.Exit(1)
 	}
 
-	r := os.Stdin
-	w := os.Stdout
+	var r io.Reader = os.Stdin
+	var w io.Writer = os.Stdout
 
 	if len(args) == 2 {
 		fileName := args[1]
-		file, err := os.Open(fileName)
-		defer file.Close()
+		file, err := openFile(fileName)
 		if err != nil {
 			log.Fatal(err)
 		}
+		defer func() {
+			err := file.Close()
+			if err != nil {
+				log.Fatal(err)
+			}
+		}()
 
 		r = file
 	}
@@ -32,6 +38,15 @@ func main() {
 		log.Fatal(err)
 	}
 
+}
+
+func openFile(fileName string) (*os.File, error) {
+	file, err := os.Open(fileName)
+	if err != nil {
+		return nil, err
+	}
+
+	return file, nil
 }
 
 func printUsage() {
