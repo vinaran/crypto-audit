@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bytes"
 	"fmt"
 	"log"
 	"os"
@@ -15,6 +14,8 @@ func main() {
 	}
 
 	r := os.Stdin
+	w := os.Stdout
+
 	if len(args) == 2 {
 		fileName := args[1]
 		file, err := os.Open(fileName)
@@ -26,11 +27,11 @@ func main() {
 		r = file
 	}
 
-	buf := new(bytes.Buffer)
-	buf.ReadFrom(r)
-	contents := buf.String()
+	err := clean(r, w)
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	fmt.Print(contents)
 }
 
 func printUsage() {
